@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Samvaad</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+
+            Samvaad
+
+        </div>
+
+        <div class="profile">
+
+            <div class="avatar" id="avatar">
+
+                A
+
+            </div>
+
+            <div class="user-info">
+
+                <h3 id="usernameText">
+
+                    User
+
+                </h3>
+
+                <p>
+
+                    Online
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Online Users -->
+
+        <div class="online-users">
+
+            <h3>
+                Chats
+            </h3>
+
+            <div
+                    id="globalChat"
+                    class="chat-option selected-chat">
+
+                🌍 Global Chat
+
+            </div>
+
+            <div id="usersList">
+
+            </div>
+
+        </div>
+
+        <button
+                class="logout-btn"
+                onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+    <!-- Chat Area -->
+
+    <div class="chat-container">
+
+        <!-- Header -->
+
+        <div class="chat-header">
+
+            <div>
+
+                <h2 id="chatTitle">
+                    Global Chat
+                </h2>
+
+                <p id="onlineCountText">
+
+                    Real-time messaging
+
+                </p>
+
+            </div>
+
+            <div class="online-status">
+
+                <span class="dot"></span>
+
+                Connected
+
+            </div>
+
+        </div>
+
+        <!-- Messages -->
+
+        <div
+                class="chat-box"
+                id="chat-box">
+
+            <div
+                    id="emptyState"
+                    class="empty-state">
+
+                <div class="empty-icon">
+
+                    💬
+
+                </div>
+
+                <h2>
+
+                    Welcome to Samvaad
+
+                </h2>
+
+                <p>
+
+                    Start a conversation and connect instantly with everyone online.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Typing Indicator -->
+
+        <div
+                id="typingIndicator"
+                class="typing-indicator">
+
+            Someone is typing...
+
+        </div>
+
+        <!-- Input Area -->
+
+        <div class="input-container">
+
+            <input
+                    type="text"
+                    id="message"
+                    autocomplete="off"
+                    placeholder="Type your message...">
+
+            <button
+                    onclick="sendMessage()">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="notificationContainer"></div>
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Samvaad</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="circle one"></div>
+
+    <div class="circle two"></div>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="logo">
+
+            💬
+
+        </div>
+
+        <h1>
+            Samvaad
+        </h1>
+
+        <p class="subtitle">
+            Real-time messaging, real connections
+        </p>
+
+        <!-- LOGIN FORM -->
+
+        <div id="loginForm"
+             class="form-container">
+
+            <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="Enter username"
+                    autocomplete="off">
+
+            <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    autocomplete="new-password">
+
+            <button id="loginBtn">
+                Login
+            </button>
+
+            <p class="switchText">
+
+                Don't have an account?
+
+                <a href="#"
+                   id="showSignup">
+
+                    Signup
+
+                </a>
+
+            </p>
+
+        </div>
+
+        <!-- SIGNUP FORM -->
+
+        <div id="signupForm"
+             class="form-container"
+             style="display:none;">
+
+            <input
+                    type="text"
+                    id="signupUsername"
+                    placeholder="Choose username">
+
+            <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Choose password">
+
+            <button id="signupBtn">
+                Create Account
+            </button>
+
+            <p class="switchText">
+
+                Already have an account?
+
+                <a href="#"
+                   id="showLogin">
+
+                    Login
+
+                </a>
+
+            </p>
+
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>
