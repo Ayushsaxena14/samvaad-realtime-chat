@@ -646,24 +646,7 @@ body::after{
     flex:1;
 }
 
-.unread-badge
-{
-    min-width:22px;
-    height:22px;
 
-    border-radius:50%;
-
-    background:#ef4444;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:12px;
-    font-weight:bold;
-
-    color:white;
-}
 /* =========================
    NOTIFICATION TOAST
 ========================== */
@@ -757,15 +740,13 @@ body::after{
 }
 .unread-badge
 {
-    min-width:22px;
+    width:24px;
 
-    height:22px;
-
-    padding:0 6px;
+    height:24px;
 
     border-radius:50%;
 
-    background:#ef4444;
+    background:#ff4d4f;
 
     color:white;
 
@@ -780,4 +761,6 @@ body::after{
     justify-content:center;
 
     margin-left:auto;
+
+    flex-shrink:0;
 }
