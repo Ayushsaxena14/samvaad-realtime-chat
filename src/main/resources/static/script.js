@@ -20,6 +20,7 @@ let currentChat = "GLOBAL";
 let globalMessages=[];
 let conversations={};
 let unreadCounts = {};
+let unreadGlobalCount = 0;
 
 //const socket =
 //    new SockJS('http://localhost:8080/chat');
@@ -53,6 +54,20 @@ stompClient.connect({}, function ()
             if(currentChat === "GLOBAL")
             {
                 renderCurrentChat();
+            }
+            else if(
+                chatMessage.senderName !==
+                username
+            )
+            {
+                unreadGlobalCount++;
+
+                showNotification(
+                    chatMessage.senderName,
+                    chatMessage.message
+                );
+
+                updateGlobalChatBadge();
             }
         }
     );
@@ -394,11 +409,18 @@ function renderOnlineUsers(users)
    if(userCount)
    {
        userCount.innerText =
-           users.length;
+           users.filter(
+               user => user !== username
+           ).length;
    }
 
+    const otherUsersCount =
+        users.filter(
+            user => user !== username
+        ).length;
+
     onlineCountText.innerText =
-        users.length +
+        otherUsersCount +
         (
             users.length === 1
             ? " User Online"
@@ -407,6 +429,10 @@ function renderOnlineUsers(users)
 
     users.forEach(user =>
     {
+        if(user === username)
+        {
+            return;
+        }
         const userDiv =
             document.createElement(
                 "div"
@@ -530,6 +556,53 @@ function showTypingIndicator(
             10000
         );
 }
+
+function updateGlobalChatBadge()
+{
+    const globalChat =
+        document.getElementById(
+            "globalChat"
+        );
+
+    let badge =
+        document.getElementById(
+            "globalUnreadBadge"
+        );
+
+    if(!badge)
+    {
+        badge =
+            document.createElement(
+                "div"
+            );
+
+        badge.id =
+            "globalUnreadBadge";
+
+        badge.classList.add(
+            "unread-badge"
+        );
+
+        globalChat.appendChild(
+            badge
+        );
+    }
+
+    if(unreadGlobalCount > 0)
+    {
+        badge.innerText =
+            unreadGlobalCount;
+
+        badge.style.display =
+            "flex";
+    }
+    else
+    {
+        badge.style.display =
+            "none";
+    }
+}
+
 function showNotification(
     sender,
     message
@@ -626,6 +699,10 @@ document
 {
     currentChat =
         "GLOBAL";
+
+    unreadGlobalCount = 0;
+
+    updateGlobalChatBadge();
 
     renderCurrentChat();
 
