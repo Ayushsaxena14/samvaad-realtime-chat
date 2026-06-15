@@ -755,3 +755,29 @@ body::after{
                 translateX(0);
     }
 }
+.unread-badge
+{
+    min-width:22px;
+
+    height:22px;
+
+    padding:0 6px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-left:auto;
+}
