@@ -63,8 +63,8 @@ stompClient.connect({}, function ()
                 unreadGlobalCount++;
 
                 showNotification(
-                    chatMessage.senderName,
-                    chatMessage.message
+                    "🌍 Global Chat",
+                    chatMessage.senderName + ": " + chatMessage.message
                 );
 
                 updateGlobalChatBadge();
@@ -579,9 +579,8 @@ function updateGlobalChatBadge()
         badge.id =
             "globalUnreadBadge";
 
-        badge.classList.add(
-            "unread-badge"
-        );
+        badge.className =
+            "unread-badge";
 
         globalChat.appendChild(
             badge
@@ -624,11 +623,11 @@ function showNotification(
 
     toast.innerHTML = `
         <div class="notification-title">
-            New Message
+            ${sender}
         </div>
 
         <div class="notification-message">
-            ${sender}: ${message}
+            ${message}
         </div>
     `;
 
